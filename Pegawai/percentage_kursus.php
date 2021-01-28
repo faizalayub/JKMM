@@ -1,7 +1,12 @@
 <?php  
-     $query = "SELECT department.Department_Name, count(course.Staff_ID) from department left join staff on staff.Department_ID = department.Department_ID  left join course on course.Staff_ID = staff.Staff_ID where department.Category_ID = '1' group by department.Department_ID";  
+
+     $getCategory = "SELECT department.Category_ID FROM `chief` JOIN department ON(department.Department_ID = chief.Department_ID) where Chief_EmailAddr = '".$_SESSION ['admin']."'";
+     $resultCategoryId = mysqli_query($connection, $getCategory);
+     $resultCategoryId = mysqli_fetch_array($resultCategoryId);
+
+     $query = "SELECT department.Department_Name, count(course.Staff_ID) from department left join staff on staff.Department_ID = department.Department_ID  left join course on course.Staff_ID = staff.Staff_ID where department.Category_ID = '".$resultCategoryId['Category_ID']."' group by department.Department_ID";  
      $result = mysqli_query($connection, $query);
-     
+    
      $totalStaff = mysqli_query($connection, "SELECT count(Course_ID ) as maxcount FROM course");
      $totalStaff = mysqli_fetch_array($totalStaff);
      $totalStaff = (!empty($totalStaff) ? $totalStaff['maxcount'] : 0);
