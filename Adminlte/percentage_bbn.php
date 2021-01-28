@@ -1,4 +1,5 @@
 <?php  
+     //Hello World
      $query = "SELECT department.Department_Name, count(course.Staff_ID) from department left join staff on staff.Department_ID = department.Department_ID left join course on course.Staff_ID = staff.Staff_ID where department.Category_ID = '4' group by department.Department_ID";  
      $result = mysqli_query($connection, $query);  
 
