@@ -39,7 +39,7 @@
 
                $DataValue[] = array(
                     'label' => $value["Department_Name"],
-                    'backgroundColor' => "#".random_color(),
+                    'backgroundColor' => random_color(),
                     'data' => $CloneArray
                );
 
