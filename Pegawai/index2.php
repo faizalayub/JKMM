@@ -17,29 +17,12 @@
   $department_name2   =  $record['Department_ID'];
 
 
-  function random_color(){
-		$rcolor = '#';
-		for($i=0;$i<6;$i++){
-		$rNumber = rand(0,15);
-		switch ($rNumber) {
-		case 10:$rNumber='A';
-		break;
-		case 11:$rNumber='B';
-		break;
-		case 12:$rNumber='C';
-		break;
-		case 13:$rNumber='D';
-		break;
-		case 14:$rNumber='E';
-		break;
-		case 15:$rNumber='F';
-		break;
-	}
-		$rcolor .= $rNumber;
-	}
-		// $rcolor = '#FF0000';
-		return $rcolor;
-	}
+  function random_color_part() {
+      return str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
+  }
+  function random_color() {
+      return random_color_part() . random_color_part() . random_color_part();
+  }
 	
 ?>
 
