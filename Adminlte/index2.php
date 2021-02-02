@@ -192,6 +192,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+
         <div class="row">
           <div class="col-md-6">
             <div class="card card-primary">
@@ -253,6 +254,26 @@
           </div>
           <!-- /.col (RIGHT) -->
         </div>
+
+		<br>
+
+		<h4>Jumlah Peratus Data Kursus Bagi Setiap Kategori</h4>
+<style>
+.box-style{
+	background: #fff;
+    padding: 2em 0;
+    box-shadow: 0 0 1px #00000020, 0 1px 3px #00000033;
+    border-radius: 3px;	
+}
+</style>
+		<div class="row">
+			<div class="col-md-12 box-style">
+				<?php include ('percentage_bycategory.php')?>
+			</div>
+		</div>
+
+		<br><br><br>
+
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
@@ -268,31 +289,29 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+	<!-- REQUIRED SCRIPTS -->
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- overlayScrollbars -->
+	<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.js"></script>
 
-<!-- OPTIONAL SCRIPTS -->
-<script src="dist/js/demo.js"></script>
+	<!-- OPTIONAL SCRIPTS -->
+	<script src="dist/js/demo.js"></script>
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="plugins/raphael/raphael.min.js"></script>
-<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+	<!-- PAGE PLUGINS -->
+	<!-- jQuery Mapael -->
+	<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+	<script src="plugins/raphael/raphael.min.js"></script>
+	<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+	<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+	<!-- ChartJS -->
+	<script src="plugins/chart.js/Chart.min.js"></script>
 
-<!-- PAGE SCRIPTS -->
-<script src="dist/js/pages/dashboard2.js"></script>
-
-
-  </body>
+	<!-- PAGE SCRIPTS -->
+	<script src="dist/js/pages/dashboard2.js"></script>
+</body>
 </html>
