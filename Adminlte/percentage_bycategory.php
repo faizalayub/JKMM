@@ -54,7 +54,7 @@
     var ctx = document.getElementById("bycategory_all");
     
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'horizontalBar',
         data: {
             labels: <?php echo json_encode($LabelIndexCollection); ?>,
             datasets: <?php echo json_encode($DataValue); ?>
@@ -63,7 +63,7 @@
             legend: {display: false},
             responsive: true,
             scales: {
-                xAxes: [{
+                yAxes: [{
                         ticks: {min: 0},
                         scaleLabel: {
                             display: true,
@@ -71,7 +71,7 @@
                         },
                         barPercentage: <?php echo $counter/2.5; ?>
                 }],
-                yAxes: [{
+                xAxes: [{
                         ticks: {
                             min: 0,
                             max: 100,
@@ -82,7 +82,7 @@
             tooltips: {
                 callbacks: {
                         label: function(tooltipItem, data) {
-                            return `(${ tooltipItem.xLabel }%) (${ (tooltipItem.yLabel/100*<?php echo $totalStaff; ?>).toFixed(0) } /<?php echo $totalStaff; ?>) Kursus`;
+                            return `(${ tooltipItem.xLabel }%) (${ (tooltipItem.xLabel/100*<?php echo $totalStaff; ?>).toFixed(0) } /<?php echo $totalStaff; ?>) Kursus`;
                         }
                 }
             }

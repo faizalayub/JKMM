@@ -258,6 +258,21 @@
 		<br>
 
 		<h4>Jumlah Peratus Data Kursus Bagi Setiap Kategori</h4>
+
+		<!-- 
+
+SELECT count(course.Course_ID) as total FROM course
+JOIN staff ON (staff.Staff_ID = course.Staff_ID)
+WHERE staff.Chief_ID IN (SELECT Chief_ID FROM chief 
+JOIN department ON(chief.Department_ID = department.Department_ID)
+WHERE department.Category_ID = 4)
+
+-- 1 = 915
+-- 2 = 1133
+-- 3 = 478
+-- 4 = 1592
+
+		-->
 <style>
 .box-style{
 	background: #fff;
