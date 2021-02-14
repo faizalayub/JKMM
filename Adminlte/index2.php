@@ -194,7 +194,7 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Jumlah Peratus JKMM</h3>
@@ -224,7 +224,7 @@
           </div>
 
           <!-- /.col (LEFT) -->
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Jumlah Peratus PBT</h3>

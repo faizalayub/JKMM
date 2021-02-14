@@ -59,4 +59,54 @@ function isLoggedIn(){
 		return false;
 	}
 }
+
+echo "
+    <script>
+        setTimeout(function(){
+
+            let url = window.location.href.split('/');
+            let d = url.findIndex(s => s == 'Adminlte');
+            let newUrlPath = url.slice(0, d);
+
+            newUrlPath = newUrlPath.join('/');
+
+            if(window.location.href.includes('Adminlte')){
+
+                let allCat = [
+                    {
+                        id : 'JKMM',
+                        link: newUrlPath+'/Adminlte/tabledata_jkmm.php'
+                    },
+                    {
+                        id : 'PBT',
+                        link: newUrlPath+'/Adminlte/tabledata_pbt.php'
+                    },
+                    {
+                        id : 'BBN',
+                        link: newUrlPath+'/Adminlte/tabledata_bbn.php'
+                    },
+                    {
+                        id : 'PAN',
+                        link: newUrlPath+'/Adminlte/tabledata_pan.php'
+                    }
+                ];
+                
+                allCat.forEach(a => {
+                    let targetBar = $('nav.mt-2 > ul > li').eq(0);
+                    let tartetWrap = targetBar.find('ul');
+                    let targetToClone = tartetWrap.find('li').eq(0);
+                    let clonedTab = targetToClone.clone();
+                
+                    clonedTab.find('a').removeClass('active');
+                    clonedTab.find('a').find('p').text('Jadual Kehadiran '+a.id);
+                    clonedTab.find('a').attr('href',a.link);
+                
+                    tartetWrap.append(clonedTab);
+                })
+
+            }
+
+        },800);
+    </script>
+";
 ?>

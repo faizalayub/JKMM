@@ -82,7 +82,7 @@
             tooltips: {
                 callbacks: {
                         label: function(tooltipItem, data) {
-                            return `(${ tooltipItem.yLabel }%) (${ (tooltipItem.xLabel/100*<?php echo $totalStaff; ?>).toFixed(0) } /<?php echo $totalStaff; ?>) Kursus`;
+                            return `(${ tooltipItem.xLabel }%) (${ (tooltipItem.xLabel/100*<?php echo $totalStaff; ?>).toFixed(0) } /<?php echo $totalStaff; ?>) Kursus`;
                         }
                 }
             }
