@@ -72,6 +72,8 @@ echo "
 
             if(window.location.href.includes('Adminlte')){
 
+                let onceRun = false;
+
                 let allCat = [
                     {
                         id : 'JKMM',
@@ -97,11 +99,16 @@ echo "
                     let targetToClone = tartetWrap.find('li').eq(0);
                     let clonedTab = targetToClone.clone();
                 
+                    if(!onceRun){
+                        targetBar.find('p').eq(0).text('2021');
+                    }
+
                     clonedTab.find('a').removeClass('active');
                     clonedTab.find('a').find('p').text('Jadual Kehadiran '+a.id);
                     clonedTab.find('a').attr('href',a.link);
                 
                     tartetWrap.append(clonedTab);
+                    onceRun = true;
                 })
 
             }

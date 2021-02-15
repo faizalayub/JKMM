@@ -66,7 +66,7 @@
                               display: true,
                               labelString: 'Percentage'
                          },
-                         barPercentage: <?php echo $counter/2.5; ?>
+                         barPercentage: <?php echo $counter/3.5; ?>
                     }],
                     xAxes: [{
                          ticks: {

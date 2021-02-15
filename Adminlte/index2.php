@@ -257,7 +257,17 @@
 
 		<br>
 
-		<h4>Jumlah Peratus Data Kursus Bagi Setiap Kategori</h4>
+    <h4>Jumlah Peratus Data Kursus Bagi Setiap Kategori (Graf Pie)</h4>
+
+    <div class="row">
+			<div class="col-md-12 box-style">
+        <?php include ('percentage_bycategory_pie.php')?>
+			</div>
+		</div>
+
+    <br>
+
+		<h4>Jumlah Peratus Data Kursus Bagi Setiap Kategori (Graf Bar)</h4>
 
 		<!-- 
 

@@ -10,13 +10,7 @@
     $DataResult = [];
     $LabelIndexCollection = [];
     $ReservedIndexCollection = [];
-
-    $rColor = [
-        "#2ecc71",
-        "#3498db",
-        "#95a5a6",
-        "#9b59b6"
-    ];
+    $pieArraySet = [];
 
     $DataValue = [];
     
@@ -46,50 +40,45 @@
 
             $DataValue[] = array(
                 'label' => 'Nothing',
-                'backgroundColor' => $rColor[$idx],
+                'backgroundColor' => "#".random_color(),
                 'data' => $CloneArray
             );
+
+            $pieArraySet[] = $countPercentStaf;
         }
     }
 ?>  
 
-<canvas id="bycategory_all" width="200" height="100"></canvas>  
+<canvas id="bycategory_all_pie" width="200" height="100"></canvas>  
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.js"></script>
 
 <script type="text/javascript">
-    var ctx = document.getElementById("bycategory_all");
+    var ctx = document.getElementById("bycategory_all_pie");
     
-    var myChart = new Chart(ctx, {
-        type: 'horizontalBar',
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
         data: {
-            labels: <?php echo json_encode($LabelIndexCollection); ?>,
-            datasets: <?php echo json_encode($DataValue); ?>
+            datasets: [{
+                data: <?php echo json_encode($pieArraySet); ?>,
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6"
+                ],
+            }],
+            labels: ['JKMM','PAN','PBT','BBN']
         },
         options: {
-            legend: {display: false},
+            legend: {display: true},
             responsive: true,
-            scales: {
-                yAxes: [{
-                        ticks: {min: 0},
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Percentage'
-                        },
-                        barPercentage: <?php echo $counter/2.5; ?>
-                }],
-                xAxes: [{
-                        ticks: {
-                            min: 0,
-                            max: 100,
-                            stepSize: 20
-                        }
-                }]
-            },
             tooltips: {
                 callbacks: {
                         label: function(tooltipItem, data) {
-                            return `(${ tooltipItem.xLabel }%) (${ (tooltipItem.xLabel/100*<?php echo $totalStaff; ?>).toFixed(0) } /<?php echo $totalStaff; ?>) Kursus`;
+                            let prc = data.datasets[0].data[tooltipItem.index];
+                            
+                            return `${ prc }% Kursus`;
                         }
                 }
             }
