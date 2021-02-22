@@ -60,60 +60,178 @@ function isLoggedIn(){
 	}
 }
 
-echo "
+echo '
     <script>
         setTimeout(function(){
 
-            let url = window.location.href.split('/');
-            let d = url.findIndex(s => s == 'Adminlte');
+            let url = window.location.href.split("/");
+            let d = url.findIndex(s => s == "Adminlte");
             let newUrlPath = url.slice(0, d);
 
-            newUrlPath = newUrlPath.join('/');
+            newUrlPath = newUrlPath.join("/");
 
-            if(window.location.href.includes('Adminlte')){
-
+            if(window.location.href.includes("Adminlte")){
                 let onceRun = false;
 
-                let allCat = [
-                    {
-                        id : 'JKMM',
-                        link: newUrlPath+'/Adminlte/tabledata_jkmm.php'
-                    },
-                    {
-                        id : 'PBT',
-                        link: newUrlPath+'/Adminlte/tabledata_pbt.php'
-                    },
-                    {
-                        id : 'BBN',
-                        link: newUrlPath+'/Adminlte/tabledata_bbn.php'
-                    },
-                    {
-                        id : 'PAN',
-                        link: newUrlPath+'/Adminlte/tabledata_pan.php'
-                    }
-                ];
-                
-                allCat.forEach(a => {
-                    let targetBar = $('nav.mt-2 > ul > li').eq(0);
-                    let tartetWrap = targetBar.find('ul');
-                    let targetToClone = tartetWrap.find('li').eq(0);
-                    let clonedTab = targetToClone.clone();
-                
-                    if(!onceRun){
-                        targetBar.find('p').eq(0).text('2021');
-                    }
-
-                    clonedTab.find('a').removeClass('active');
-                    clonedTab.find('a').find('p').text('Jadual Kehadiran '+a.id);
-                    clonedTab.find('a').attr('href',a.link);
-                
-                    tartetWrap.append(clonedTab);
-                    onceRun = true;
-                })
-
+                $(\'nav.mt-2\').html(`
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p> 2021 <i class="right fas fa-angle-left"></i> </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: block;">
+                                <li class="nav-item">
+                                    <a href="./index2.php" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Halaman Utama</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>
+                                            Borang
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview" style="display: none;">
+                                        <li class="nav-item">
+                                            <a href="pages/forms/addadmin.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Daftar Admin</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pages/forms/addpegawai.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Daftar Pegawai</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pages/forms/addjabatan.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Daftar Jabatan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>
+                                            Laporan
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="pages/tables/data.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Data Pegawai</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pages/tables/kursus.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Data Kursus</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="pages/forms/tukarpassword.php" class="nav-link">
+                                        <i class="nav-icon fas fa-key"></i>
+                                        <p>
+                                            Tukar Kata Laluan
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p> 2020 <i class="right fas fa-angle-left"></i> </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: block;">
+                                <li class="nav-item">
+                                    <a href="./index2.php" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Halaman Utama</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>
+                                            Borang
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview" style="display: none;">
+                                        <li class="nav-item">
+                                            <a href="pages/forms/addadmin.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Daftar Admin</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pages/forms/addpegawai.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Daftar Pegawai</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pages/forms/addjabatan.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Daftar Jabatan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>
+                                            Laporan
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="pages/tables/data.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Data Pegawai</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pages/tables/kursus.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Data Kursus</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="pages/forms/tukarpassword.php" class="nav-link">
+                                        <i class="nav-icon fas fa-key"></i>
+                                        <p>
+                                            Tukar Kata Laluan
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                `);
             }
-
-        },800);
+        },200);
     </script>
-";
+';
+
 ?>
