@@ -140,7 +140,7 @@ echo '
                                 <li class="nav-item has-treeview">
                                     <a onclick="redirect(\'Adminlte/pages/forms/tukarpassword.php\')" class="nav-link">
                                         <i class="nav-icon fas fa-key"></i>
-                                        <p> Tukar Kata Laluan <i class="right fas fa-angle-left"></i> </p>
+                                        <p> Tukar Kata Laluan</p>
                                     </a>
                                 </li>
 
@@ -148,12 +148,12 @@ echo '
                         </li>
                     </ul>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item has-treeview menu-open">
+                        <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p> 2020 <i class="right fas fa-angle-left"></i> </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: block;">
+                            <ul class="nav nav-treeview" style="display: none;">
 
                                 <li class="nav-item">
                                     <a onclick="redirect(\'Adminlte/index2.php\')" class="nav-link">
@@ -213,7 +213,7 @@ echo '
                                 <li class="nav-item has-treeview">
                                     <a onclick="redirect(\'Adminlte/pages/forms/tukarpassword.php\')" class="nav-link">
                                         <i class="nav-icon fas fa-key"></i>
-                                        <p> Tukar Kata Laluan <i class="right fas fa-angle-left"></i> </p>
+                                        <p> Tukar Kata Laluan</p>
                                     </a>
                                 </li>
 
