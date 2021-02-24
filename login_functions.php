@@ -62,8 +62,21 @@ function isLoggedIn(){
 
 echo '
     <script>
-        setTimeout(function(){
+        function docReady(fn) {            
+            if (document.readyState === "complete" || document.readyState === "interactive") {                
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener("DOMContentLoaded", fn);
+            }
+        }
 
+        function redirect(c){
+            let domain = window.location.href.split(\'Adminlte\')[0];
+            window.location.href = `${ domain }${ c }`;
+        }
+
+        docReady(function() { 
+            let targetMenuAppend = $(`nav.mt-2`);           
             let url = window.location.href.split("/");
             let d = url.findIndex(s => s == "Adminlte");
             let newUrlPath = url.slice(0, d);
@@ -73,7 +86,7 @@ echo '
             if(window.location.href.includes("Adminlte")){
                 let onceRun = false;
 
-                $(\'nav.mt-2\').html(`
+                targetMenuAppend.html(`
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link">
@@ -222,12 +235,8 @@ echo '
                     </ul>
                 `);
             }
-        },200);
+        });
 
-        function redirect(c){
-            let domain = window.location.href.split(\'Adminlte\')[0];
-            window.location.href = `${ domain }${ c }`;
-        }
     </script>
 ';
 
