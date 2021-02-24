@@ -132,6 +132,39 @@ echo '
                                 <li class="nav-item has-treeview">
                                     <a href="#" class="nav-link">
                                         <i class="nav-icon fas fa-table"></i>
+                                        <p>Jadual Kehadiran<i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_jkmm.php?y=2021\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>JKMM</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_pbt.php?y=2021\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>PBT</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_bbn.php?y=2021\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>BBN</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_pan.php?y=2021\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>PAN</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
                                         <p>Laporan<i class="fas fa-angle-left right"></i></p>
                                     </a>
                                     <ul class="nav nav-treeview">
@@ -160,13 +193,14 @@ echo '
                             </ul>
                         </li>
                     </ul>
+
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p> 2020 <i class="right fas fa-angle-left"></i> </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: none;">
+                            <ul class="nav nav-treeview" style="display: block;">
 
                                 <li class="nav-item">
                                     <a onclick="redirect(\'Adminlte/index2.php\')" class="nav-link">
@@ -197,6 +231,39 @@ echo '
                                             <a onclick="redirect(\'Adminlte/pages/forms/addjabatan.php\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Daftar Jabatan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Jadual Kehadiran<i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_jkmm.php?y=2020\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>JKMM</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_pbt.php?y=2020\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>PBT</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_bbn.php?y=2020\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>BBN</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a onclick="redirect(\'Adminlte/tabledata_pan.php?y=2020\')" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>PAN</p>
                                             </a>
                                         </li>
                                     </ul>
