@@ -26,6 +26,11 @@
     }
 	}
 	
+  $year = 2020;
+
+  if(isset($_GET['y'])){
+    $year = $_GET['y'];
+  }
 ?>
 
 
@@ -237,7 +242,7 @@ div.ex1 {
             <div class="card-body">
             <div class="ex1">
               <?php          
-              $results = mysqli_query($connection, "SELECT * from course left join staff on course.Staff_ID = staff.Staff_ID left join department on department.Department_ID = staff.Department_ID"); 
+              $results = mysqli_query($connection, "SELECT * from course left join staff on course.Staff_ID = staff.Staff_ID left join department on department.Department_ID = staff.Department_ID WHERE course.Start_Date LIKE '%".$year."%'"); 
               $counter = 1;
               ?>
             <table id="example1" class="table table-bordered" style="text-transform:uppercase" style="font-size:14px !important">

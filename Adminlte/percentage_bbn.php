@@ -1,6 +1,6 @@
 <?php  
      //Hello World
-     $query = "SELECT department.Department_Name, count(course.Staff_ID) from department left join staff on staff.Department_ID = department.Department_ID left join course on course.Staff_ID = staff.Staff_ID where department.Category_ID = '4' group by department.Department_ID";  
+     $query = "SELECT department.Department_Name, count(course.Staff_ID) from department left join staff on staff.Department_ID = department.Department_ID left join course on (course.Staff_ID = staff.Staff_ID AND course.Start_Date LIKE '%".$year."%') where department.Category_ID = '4' group by department.Department_ID";  
      $result = mysqli_query($connection, $query);  
 
      $totalStaff = mysqli_query($connection, "SELECT count(Course_ID) as maxcount FROM course WHERE Staff_ID IN (SELECT Staff_ID FROM staff WHERE Department_ID = 4)");
@@ -41,6 +41,15 @@
                );
           }
      }
+
+
+     if(count($DataValue) == 0){
+          echo "<script>
+              setTimeout(function(){
+                  $('#Chart_Bbn').parent().html('<center>Tiada Data Untuk Tahun ".$year.".</center>');
+              },800)
+              </script>";
+      }
  ?>  
 
 
