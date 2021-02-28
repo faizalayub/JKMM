@@ -96,7 +96,7 @@ echo '
                             <ul class="nav nav-treeview" style="display: block;">
 
                                 <li class="nav-item">
-                                    <a onclick="redirect(\'Adminlte/index2.php\')" class="nav-link">
+                                    <a onclick="redirect(\'Adminlte/index2.php?y=2021\')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Halaman Utama</p>
                                     </a>
@@ -109,19 +109,19 @@ echo '
                                     </a>
                                     <ul class="nav nav-treeview" style="display: none;">
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/forms/addadmin.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/forms/addadmin.php?y=2021\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Daftar Admin</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/forms/addpegawai.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/forms/addpegawai.php?y=2021\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Daftar Pegawai</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/forms/addjabatan.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/forms/addjabatan.php?y=2021\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Daftar Jabatan</p>
                                             </a>
@@ -169,13 +169,13 @@ echo '
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/tables/data.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/tables/data.php?y=2021\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Data Pegawai</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/tables/kursus.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/tables/kursus.php?y=2021\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Data Kursus</p>
                                             </a>
@@ -184,7 +184,7 @@ echo '
                                 </li>
 
                                 <li class="nav-item has-treeview">
-                                    <a onclick="redirect(\'Adminlte/pages/forms/tukarpassword.php\')" class="nav-link">
+                                    <a onclick="redirect(\'Adminlte/pages/forms/tukarpassword.php?y=2021\')" class="nav-link">
                                         <i class="nav-icon fas fa-key"></i>
                                         <p> Tukar Kata Laluan</p>
                                     </a>
@@ -203,7 +203,7 @@ echo '
                             <ul class="nav nav-treeview" style="display: block;">
 
                                 <li class="nav-item">
-                                    <a onclick="redirect(\'Adminlte/index2.php\')" class="nav-link">
+                                    <a onclick="redirect(\'Adminlte/index2.php?y=2020\')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Halaman Utama</p>
                                     </a>
@@ -216,19 +216,19 @@ echo '
                                     </a>
                                     <ul class="nav nav-treeview" style="display: none;">
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/forms/addadmin.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/forms/addadmin.php?y=2020\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Daftar Admin</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/forms/addpegawai.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/forms/addpegawai.php?y=2020\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Daftar Pegawai</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/forms/addjabatan.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/forms/addjabatan.php?y=2020\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Daftar Jabatan</p>
                                             </a>
@@ -276,13 +276,13 @@ echo '
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/tables/data.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/tables/data.php?y=2020\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Data Pegawai</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a onclick="redirect(\'Adminlte/pages/tables/kursus.php\')" class="nav-link">
+                                            <a onclick="redirect(\'Adminlte/pages/tables/kursus.php?y=2020\')" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Data Kursus</p>
                                             </a>
@@ -291,7 +291,7 @@ echo '
                                 </li>
 
                                 <li class="nav-item has-treeview">
-                                    <a onclick="redirect(\'Adminlte/pages/forms/tukarpassword.php\')" class="nav-link">
+                                    <a onclick="redirect(\'Adminlte/pages/forms/tukarpassword.php?y=2020\')" class="nav-link">
                                         <i class="nav-icon fas fa-key"></i>
                                         <p> Tukar Kata Laluan</p>
                                     </a>

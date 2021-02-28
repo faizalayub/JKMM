@@ -19,7 +19,7 @@
 
     while($row = mysqli_fetch_array($categoryResult)){ 
 
-        $getCountByCategory = mysqli_fetch_array(mysqli_query($connection, "SELECT count(course.Course_ID) as total FROM course JOIN staff ON (staff.Staff_ID = course.Staff_ID) WHERE staff.Chief_ID IN (SELECT Chief_ID FROM chief JOIN department ON(chief.Department_ID = department.Department_ID) WHERE department.Category_ID = ".$row["Category_ID"].")")); 
+        $getCountByCategory = mysqli_fetch_array(mysqli_query($connection, "SELECT count(course.Course_ID) as total FROM course JOIN staff ON (staff.Staff_ID = course.Staff_ID) WHERE staff.Chief_ID IN (SELECT Chief_ID FROM chief JOIN department ON(chief.Department_ID = department.Department_ID) WHERE department.Category_ID = ".$row["Category_ID"].") AND course.Start_Date LIKE '%".$year."%'")); 
 
         $DataResult[] = $getCountByCategory;
         $LabelIndexCollection[] = $row["Category_Name"];
@@ -47,6 +47,23 @@
             $pieArraySet[] = $countPercentStaf;
         }
     }
+
+    $countEmpty = 0;
+
+    foreach($pieArraySet as $p){
+        if($p == '0.00'){
+            $countEmpty++;
+        }
+    }
+
+    if($countEmpty == count($pieArraySet)){
+        echo "<script>
+            setTimeout(function(){
+                $('#bycategory_all_pie').parent().html('<center>Tiada Data Untuk Tahun ".$year.".</center>');
+            },800)
+            </script>";
+    }
+    
 ?>  
 
 <canvas id="bycategory_all_pie" width="200" height="100"></canvas>  
