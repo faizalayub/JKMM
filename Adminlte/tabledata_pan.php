@@ -2,6 +2,13 @@
     include('../login_functions.php');
 
     $categoryid = 2;
+
+    	
+    $year = 2020;
+
+    if(isset($_GET['y'])){
+        $year = $_GET['y'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -71,15 +78,15 @@
 
                     $totalStaff = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as total FROM staff WHERE Department_ID = ".$deptId));
 
-                    $totalJusa_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalJusaHadir FROM course WHERE Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%jusa%' AND Department_ID = ".$deptId.")"));
+                    $totalJusa_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalJusaHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%jusa%' AND Department_ID = ".$deptId.")"));
 
-                    $totalSokongan1_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalSokongan1Hadir FROM course WHERE Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 1%' AND Department_ID = ".$deptId.")"));
+                    $totalSokongan1_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalSokongan1Hadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 1%' AND Department_ID = ".$deptId.")"));
 
-                    $totalSokongan2_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalSokongan2Hadir FROM course WHERE Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 2%' AND Department_ID = ".$deptId.")"));
+                    $totalSokongan2_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalSokongan2Hadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 2%' AND Department_ID = ".$deptId.")"));
 
-                    $totalPengProf_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalPengProfHadir FROM course WHERE Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%pengurusan & profesional%' AND Department_ID = ".$deptId.")"));
+                    $totalPengProf_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalPengProfHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%pengurusan & profesional%' AND Department_ID = ".$deptId.")"));
 
-                    $overallHadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalHadir FROM course WHERE Staff_ID IN (SELECT Staff_ID FROM staff WHERE Department_ID = ".$deptId.")"));
+                    $overallHadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Department_ID = ".$deptId.")"));
 
                     $totalAvailableStaff = $totalAvailableStaff + $totalStaff['total'];
             ?>
