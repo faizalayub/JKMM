@@ -116,11 +116,16 @@
 
                     <td><?php echo $overallHadir['totalHadir']; ?></td>
 
-                    <td><?php echo ($totalStaff['total'] - $overallHadir['totalHadir']); ?></td>
+                    <td><?php echo abs($totalStaff['total'] - $overallHadir['totalHadir']); ?></td>
 
                     <?php if($totalStaff['total'] != 0){ ?>
 
-                        <td><?php echo round(($overallHadir['totalHadir'] / $totalStaff['total']) * 100); ?>%</td>
+                        <td>
+                            <?php 
+                                $s = ($overallHadir['totalHadir'] > $totalStaff['total'] ? $totalStaff['total'] : $overallHadir['totalHadir']);
+                                echo round((abs($s) / $totalStaff['total']) * 100); 
+                            ?>%
+                        </td>
 
                     <?php }else{ ?>
 
