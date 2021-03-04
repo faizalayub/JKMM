@@ -31,9 +31,13 @@
     if(count($DataResult) > 0){
         foreach ($DataResult as $idx => $value) {
 
-            $countPercentStaf = ($value['total'] / $totalStaff) * 100;
-            $countPercentStaf = number_format((float)$countPercentStaf, 2, '.', '');
-
+            if($totalStaff != 0){
+                $countPercentStaf = ($value['total'] / $totalStaff) * 100;
+                $countPercentStaf = number_format((float)$countPercentStaf, 2, '.', '');
+            }else{
+                $countPercentStaf = 0.00;
+            }
+            
             $CloneArray = $ReservedIndexCollection;
 
             $CloneArray[$idx] = $countPercentStaf;

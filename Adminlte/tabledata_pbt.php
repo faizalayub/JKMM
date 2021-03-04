@@ -76,19 +76,22 @@
 
                     $deptId = $row['Department_ID'];
 
+                    $totalStaffJusa = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as total FROM staff WHERE Staff_Group LIKE '%jusa%' && Department_ID = ".$deptId));
+                    $totalJusa_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(DISTINCT(Staff_ID)) as totalJusaHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%jusa%' AND Department_ID = ".$deptId.")"));
+
+                    $totalStaffSokongan1 = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as total FROM staff WHERE Staff_Group LIKE '%sokongan 1%' AND Department_ID = ".$deptId));
+                    $totalSokongan1_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(DISTINCT(Staff_ID)) as totalSokongan1Hadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 1%' AND Department_ID = ".$deptId.")"));
+
+                    $totalStaffSokongan2 = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as total FROM staff WHERE Staff_Group LIKE '%sokongan 2%' AND Department_ID = ".$deptId));
+                    $totalSokongan2_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(DISTINCT(Staff_ID)) as totalSokongan2Hadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 2%' AND Department_ID = ".$deptId.")"));
+
+                    $totalStaffPengProf = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as total FROM staff WHERE Staff_Group LIKE '%pengurusan & profesional%' AND Department_ID = ".$deptId));
+                    $totalPengProf_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(DISTINCT(Staff_ID)) as totalPengProfHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%pengurusan & profesional%' AND Department_ID = ".$deptId.")"));
+
                     $totalStaff = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as total FROM staff WHERE Department_ID = ".$deptId));
+                    $overallHadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(DISTINCT(Staff_ID)) as totalHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Department_ID = ".$deptId.")"));
 
-                    $totalJusa_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalJusaHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%jusa%' AND Department_ID = ".$deptId.")"));
-
-                    $totalSokongan1_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalSokongan1Hadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 1%' AND Department_ID = ".$deptId.")"));
-
-                    $totalSokongan2_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalSokongan2Hadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%sokongan 2%' AND Department_ID = ".$deptId.")"));
-
-                    $totalPengProf_hadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalPengProfHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Staff_Group LIKE '%pengurusan & profesional%' AND Department_ID = ".$deptId.")"));
-
-                    $overallHadir = mysqli_fetch_assoc(mysqli_query($connection, "SELECT count(*) as totalHadir FROM course WHERE course.Start_Date LIKE '%".$year."%' AND Staff_ID IN (SELECT Staff_ID FROM staff WHERE Department_ID = ".$deptId.")"));
-
-                    $totalAvailableStaff = $totalAvailableStaff + $totalStaff['total'];
+                    $totalAvailableStaff = $totalAvailableStaff + $totalStaff['total'];  
             ?>
 
                 <tr>
@@ -99,23 +102,18 @@
                     <td><?php echo $totalStaff['total']; ?></td>
 
                     <td><?php echo $totalJusa_hadir['totalJusaHadir']; ?></td>
-
-                    <td><?php echo ($totalStaff['total'] - $totalJusa_hadir['totalJusaHadir']); ?></td>
+                    <td><?php echo ($totalStaffJusa['total'] - $totalJusa_hadir['totalJusaHadir']); ?></td>
 
                     <td><?php echo $totalPengProf_hadir['totalPengProfHadir']; ?></td>
-
-                    <td><?php echo ($totalStaff['total'] - $totalPengProf_hadir['totalPengProfHadir']); ?></td>
+                    <td><?php echo ($totalStaffPengProf['total'] - $totalPengProf_hadir['totalPengProfHadir']); ?></td>
 
                     <td><?php echo $totalSokongan1_hadir['totalSokongan1Hadir']; ?></td>
-
-                    <td><?php echo ($totalStaff['total'] - $totalSokongan1_hadir['totalSokongan1Hadir']); ?></td>
+                    <td><?php echo ($totalStaffSokongan1['total'] - $totalSokongan1_hadir['totalSokongan1Hadir']); ?></td>
 
                     <td><?php echo $totalSokongan2_hadir['totalSokongan2Hadir']; ?></td>
-
-                    <td><?php echo ($totalStaff['total'] - $totalSokongan2_hadir['totalSokongan2Hadir']); ?></td>
+                    <td><?php echo ($totalStaffSokongan2['total'] - $totalSokongan2_hadir['totalSokongan2Hadir']); ?></td>
 
                     <td><?php echo $overallHadir['totalHadir']; ?></td>
-
                     <td><?php echo abs($totalStaff['total'] - $overallHadir['totalHadir']); ?></td>
 
                     <?php if($totalStaff['total'] != 0){ ?>
